@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Öğrenci Sayfa";
+}
+
+
+<h1 class="text-danger"> Öğrenci Sayfa</h1>
+
+
+
+@if (TempData["Bildiri"] != null)
+{
+    <div>
+        @TempData["Bildiri"]
+    </div>
+}
+
+@await Component.InvokeAsync("Student")

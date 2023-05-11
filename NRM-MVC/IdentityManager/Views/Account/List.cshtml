@@ -1,0 +1,49 @@
+﻿@model List<AppUser>
+
+<div>
+    <a asp-action="Register" class="btn btn-warning">Register</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               UserId
+            </th>
+            <th>
+                UserName
+            </th>
+            <th>
+               Email
+            </th>
+            <th>
+                Update
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (AppUser item in Model)
+        {
+            <tr>
+                <td>
+                   @item.Id
+                </td>
+                <td>
+                    @item.UserName
+                </td>
+                <td>
+                    @item.Email
+                </td>
+                <td>
+                    <a asp-action="Update" asp-controller="Account" asp-route-id="@item.Id" class="btn btn-info">Update</a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-controller="Account" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

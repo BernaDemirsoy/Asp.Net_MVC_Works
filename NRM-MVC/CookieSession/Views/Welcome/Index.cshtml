@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model User
+
+@if (!string.IsNullOrEmpty(Model.Name))
+{
+    <p> Hoş geldin @Model.Name  sen  şu yaştasın @Model.Age</p>
+    <a class="btn btn-outline-danger" asp-action="BeniUnut"> Beni unut</a>
+}
+else
+{
+    <form asp-action="Index" method="post">
+
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control">
+            @*@Html.LabelFor(m=>m.Name)
+        @Html.TextBoxFor(a=>a.Name,"",new { @class = "form-control"})*@
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Age"></label>
+            <input asp-for="Age" class="form-control">
+            @*@Html.LabelFor(m=>m.Age)
+        @Html.TextBoxFor(a=>a.Age,"",new { @class = "form-control"})*@
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-info">Log ın</button>
+        </div>
+    </form>
+}
+
+
+@if (TempData["Message"] != null)
+{
+    <div class="bg-black text-white-50">
+        @TempData["Message"]
+    </div>
+}
+

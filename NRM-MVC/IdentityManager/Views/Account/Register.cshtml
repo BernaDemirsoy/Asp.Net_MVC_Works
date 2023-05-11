@@ -1,0 +1,24 @@
+﻿@model UserVM
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <form asp-action="Register" asp-controller="Account">
+            <div class="form-group">
+                <input asp-for="UserName" placeholder="User Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input asp-for="Email" placeholder="Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input asp-for="Password" type="password" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

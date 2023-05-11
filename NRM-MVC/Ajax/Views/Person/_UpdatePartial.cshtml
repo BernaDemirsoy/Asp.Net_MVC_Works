@@ -1,0 +1,21 @@
+﻿@model Ajax.Models.Person
+
+<h4>Person</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input id="update-name" asp-for="FirstName" placeholder="First Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input id="update-last-name" asp-for="LastName" placeholder="Last Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Update" class="btn btn-primary" onclick="UpdatePerson(@Model.Id)" />
+        </div>
+
+    </div>
+</div>
+
+
+

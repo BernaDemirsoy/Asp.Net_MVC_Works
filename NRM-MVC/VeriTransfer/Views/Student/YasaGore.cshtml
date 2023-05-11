@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    ViewData["Title"] = "Yaşa Göre";
+}
+@model List<Student>
+
+<h1>Yaşa göre Listeleme</h1>
+
+<hr />
+
+<div>
+    <h2>Genç Öğrenciler</h2>
+    <partial name="_YasList" model="Model.Where(a=>a.Age <25).ToList()" />
+</div>
+
+<hr />
+<div>
+    <h2>Yaşlı Öğrenciler</h2>
+    <partial name="_YasList" model="Model.Where(a=>a.Age >=25).ToList()" />
+</div>

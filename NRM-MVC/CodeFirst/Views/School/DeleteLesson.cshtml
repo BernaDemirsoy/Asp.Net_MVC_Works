@@ -1,0 +1,44 @@
+﻿
+@using CodeFirst.Entities.Concrete;
+@model DeleteLessonVM
+@{
+    ViewData["Title"] = "Okuldan Ders Çıkar";
+}
+
+
+<h1 class="text-warning">Ders Çıkar</h1>
+
+<h4>Dersler</h4>
+
+<hr />
+
+@if (ViewBag.Bildiri != null)
+{
+    <div class="text-warning">
+        @ViewBag.Bildiri
+    </div>
+}
+
+<h3>@Model.Name 'nın Dersleri</h3>
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="DeleteLesson" method="post">
+            <input type="hidden" asp-for="SchoolId" />
+            <select asp-for="LessonId" class="form-control">
+                @foreach (var item in Model.Lessons)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Ders Sil" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

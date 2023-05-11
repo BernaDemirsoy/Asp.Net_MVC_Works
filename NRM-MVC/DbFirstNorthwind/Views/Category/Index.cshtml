@@ -1,0 +1,71 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+
+*@
+
+@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+@model List<Category>
+
+<h1 class="text-danger"> Ana Sayfa</h1>
+
+
+
+@if (TempData["Bildiri"] != null)
+{
+    <div>
+        @TempData["Bildiri"]
+    </div>
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                CategoryName
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                İşlemler
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Category item in Model)
+        {
+            <tr>
+                <td>
+                    @item.CategoryId
+                </td>
+                <td>
+                    @item.CategoryName
+                </td>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    <a class="btn btn-warning" asp-action="Details" asp-route-id="@item.CategoryId">Details </a>
+                    <div>
+                        <form method="post" asp-action="Delete" asp-route-id="@item.CategoryId">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.CategoryId">Edit </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+<div>
+    <a class="btn btn-outline-primary" asp-action="Create">Create</a>
+</div>

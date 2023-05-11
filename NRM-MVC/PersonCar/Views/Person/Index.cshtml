@@ -1,0 +1,10 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model Person
+
+<h2>Kullanıcı Adı : @Model.FirstName</h2>
+<h2>Kullanıcı SoyAdı : @Model.LastName</h2>
+
+<a asp-controller="Person" asp-action="PersonsCar" class="text-white btn btn-primary" >Muhammet'in arabaları'</a>

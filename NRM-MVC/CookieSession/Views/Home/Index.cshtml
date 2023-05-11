@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model User
+<div>
+    @if (!string.IsNullOrEmpty(Model.Name))
+    {
+        <div>
+            Tekrardan Hoşgeldin Arkadaş ! , @Model.Name
+        </div>
+    }
+    else
+    {
+        <form asp-action="Index" method="post">
+
+            <span>
+                OO sen buralarda yenisin galiba !
+            </span>
+            <br />
+            <label>
+                User Name
+            </label>
+            <input type="text" asp-for="Name" />
+            <div class="form-group">
+                <input type="submit" value="Giris Yap" class="btn btn-warning text-black-50" />
+            </div>
+        </form>
+    }
+
+    
+</div>
+
+<a asp-action="Delete" class="btn btn-outline-info"> Beni unut !</a>
+
+
+
+

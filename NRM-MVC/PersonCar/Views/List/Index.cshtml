@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@*@model List<Person>*@
+
+<h2>Person List</h2>
+
+
+
+<table class="table table-borderless">
+
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Get Cars</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var personlist=ViewBag.People;
+        }
+        @foreach (Person person in personlist)
+        {
+            <tr>
+                <td>@person.FirstName</td>
+                <td>@person.LastName</td>
+                <td><a asp-controller="List" asp-action="GetCars" asp-route-id="@person.Id" class="btn btn-dark btn-outline-light text-white">Get Cars</a></td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>

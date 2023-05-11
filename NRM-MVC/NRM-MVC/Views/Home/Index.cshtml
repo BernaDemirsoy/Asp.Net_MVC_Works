@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<h2>Razor  View Engine Kullanımı</h2>
+
+<h4> Degisken tanımlama ve deger atama</h4>
+@*<p>Adınız  :  <strong>@ad</strong></p>*@
+@{
+    string ad = "Arda";
+    string soyAd = "Şen";
+    int yas = 27;
+    string title = "Jr. Software Developer";
+}
+@{
+    //title'ın hemen altından devam eder burada yazmaya
+}
+<hr />
+<h4>Değişken çağırma</h4>
+
+<div class="bg-dark text-white">
+    <p>Adınız  :  <strong>@ad</strong></p>
+    <p>Soyadınız  :  <strong>@soyAd</strong></p>
+    <p>Yaşınız  :  <strong>@yas</strong></p>
+    <p>Ünvanınız  :  <strong>@title</strong></p>
+</div>
+
+<h4>Karar yapıları</h4>
+
+@{
+    if (yas > 25)
+    {
+        <p>Kişinin yaşı 25'ten büyüktür , @yas yaşındadır</p>
+    }
+    else
+    {
+        <p>Kişinin yaşı 25'ten küçüktür , @yas yaşındadır</p>
+    }
+}
+<hr />
+
+    <h4> Razor View Engine ile döngüler..</h4>
+    isimler ve soyisimler olacak şekilde sınıf üyelerinden 5 kişi yazmanız.
+    isimler ayrı bir array soy isimler ayrı bir array olacak
+    dögü ile isim soy isim yan yana olacak şekilde ekrana basınız
+@{
+    string[] isimler = { "Atakan", "Berna", "Emre", "Enes", "Furkan" };
+    string[] soyIsimler = { "Kelle", "Demirsoy", "Karaüzüm", "Özkaya", "Bayar" };
+}
+@{
+    for (int i = 0; i < isimler.Length; i++)
+    {
+        <p>Ismi : @isimler[i] - Soyismi : @soyIsimler[i]</p>
+    }
+}
+<hr />
+
+    <h4> Razor View Engine ile ternary if kullanımı..</h4>
+
+@(7 > 5 ? "İfade doğru" : "İfade yanlış")

@@ -1,0 +1,62 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using CodeFirst.Entities.Concrete;
+@{
+    ViewData["Title"] = "Student Sayfa";
+}
+@model List<Student>
+
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Class
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Oluşma Zamanı
+            </th>
+            <th>
+                İşlemler
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Student item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Class
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.CreateTime.ToString("dd/MM/yyyyy")
+                </td>
+                <td>
+                    <a class="btn btn-dark" asp-action="#" asp-route-id="@item.Id">Update </a>
+                    <a class="btn btn-warning" asp-action="#" asp-route-id="@item.Id">Add Lesson </a>
+                    <a class="btn btn-danger" asp-action="#" asp-route-id="@item.Id">DeleteLesson </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+<div>
+    <a class="btn btn-outline-primary" asp-action="Create">Create</a>
+</div>

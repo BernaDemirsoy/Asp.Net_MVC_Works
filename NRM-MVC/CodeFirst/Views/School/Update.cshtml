@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Okul Oluştur";
+}
+@model SchoolUpdateVM
+
+<h1 class="text-warning">Update</h1>
+
+<h4>School</h4>
+
+<hr />
+
+@if (ViewBag.Bildiri != null)
+{
+    <div class="text-warning">
+        @ViewBag.Bildiri
+    </div>
+}
+
+<div class="text-danger bg-light" asp-validation-summary="All">
+
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update" method="post">
+            <input type="hidden" asp-for="Id"/>
+            <div class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

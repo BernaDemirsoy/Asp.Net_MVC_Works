@@ -1,0 +1,22 @@
+﻿@model Login
+
+<h4>Login</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <form asp-action="Login" method="post" asp-controller="Account">
+            <div class="form-group">
+                <input asp-for="Email" placeholder="Email" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                <input asp-for="Password" type="password" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Log In" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

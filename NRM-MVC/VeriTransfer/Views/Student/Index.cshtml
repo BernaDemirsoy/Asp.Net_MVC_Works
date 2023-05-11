@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    ViewData["Title"] = ViewBag.Header;
+}
+@{
+    if (TempData["Success"] != null)
+    {
+        <div>@TempData["Success"].ToString()</div>
+    }
+}
+
+<div>
+    <a class="btn btn-outline-primary" asp-controller="Student" asp-action="Create">
+        Create
+    </a>
+</div>
+
+<table class="table table-borderless">
+    <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>LastName</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            List<Student> students = (List<Student>)ViewData["list"]!;
+            foreach (var item in students)
+            {
+                <tr>
+                    <td>
+                        @item.FirstName
+                    </td>
+                    <td>
+                        @item.LastName
+                    </td>
+                    <td>
+                        <a class="btn btn-warning"> Details</a>
+                        <a class="btn btn-danger"> Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<gollum go-to="https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic.wikia.nocookie.net%2Fortadunya%2Fimages%2F8%2F8d%2FGollum.jpg%2Frevision%2Flatest%3Fcb%3D20190429114714&tbnid=CuvhjDpzNETkUM&vet=12ahUKEwjhyKifsp_-AhXL2aQKHdbiDiUQMygBegUIARC3AQ..i&imgrefurl=https%3A%2F%2Fortadunya.fandom.com%2Fwiki%2FGollum&docid=YOp6Ibj3xUJmfM&w=250&h=253&q=gollum&client=opera-gx&ved=2ahUKEwjhyKifsp_-AhXL2aQKHdbiDiUQMygBegUIARC3AQ" display="Gollumu özlediysen gel bak hasret gider." is-bold=false></gollum>
